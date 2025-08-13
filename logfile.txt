@@ -1,0 +1,7 @@
+use std::fs::OpenOptions;
+
+let mut log_file = OpenOptions::new()
+    .append(true)
+    .create(true)
+    .open("logfile.txt")
+    .expect("Cannot open log file");
