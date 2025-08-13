@@ -1,2 +1,4 @@
 # Secure_coding_Group9
 This repo contains our Part B Rust project: a secure file backup, restore, and delete tool. It includes Rust code, test cases for valid and malicious inputs, and a logfile for all actions. The project highlights secure design choices and thorough testing to ensure robustness against threats.
+
+This repository contains our Part B group project—a secure Rust program for backing up, restoring, and deleting files. It includes source code, test cases with valid and malicious inputs to ensure security strength, and a logfile for auditing. The project emphasizes secure design with input validation and safe file handling. A report details how to compile, run, and test the program, with screenshots showing achieved security standards. This work highlights our team’s skills in Rust programming and secure coding
