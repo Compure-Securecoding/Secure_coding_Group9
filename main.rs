@@ -2,7 +2,26 @@ use std::fs;
 use std::io::{self, Write};
 
 fn main() {
-    // 1. Read file name
+    // 1. Read username
+    println!("Please enter your username:");
+    let username = read_trimmed_line();
+    if username.is_empty() {
+        println!("Username cannot be empty!");
+        return;
+    }
+
+    // 2. Read password
+    println!("Please enter your password:");
+    let password = read_trimmed_line();
+    if password.is_empty() {
+        println!("Password cannot be empty!");
+        return;
+    }
+
+    // (Optional) – just to show it worked
+    println!("Welcome, {}!", username);
+
+    // 3. Read file name
     println!("Please enter your file name:");
     let filename = read_trimmed_line();
     if filename.is_empty() {
@@ -10,7 +29,7 @@ fn main() {
         return;
     }
 
-    // 2. Read command
+    // 4. Read command
     println!("Please enter your command (backup, restore, delete):");
     let command = read_trimmed_line();
 
@@ -48,19 +67,19 @@ fn read_trimmed_line() -> String {
 // Backup file by copying it to a .bak file
 fn backup_file(filename: &str) -> Result<(), std::io::Error> {
     let backup_name = format!("{}.bak", filename);
-    fs::copy(filename, &backup_name)?; // actually use filename
+    fs::copy(filename, &backup_name)?;
     Ok(())
 }
 
 // Restore file by copying from the .bak file
 fn restore_file(filename: &str) -> Result<(), std::io::Error> {
     let backup_name = format!("{}.bak", filename);
-    fs::copy(&backup_name, filename)?; // actually use filename
+    fs::copy(&backup_name, filename)?;
     Ok(())
 }
 
 // Delete the original file
 fn delete_file(filename: &str) -> Result<(), std::io::Error> {
-    fs::remove_file(filename)?; // actually use filename
+    fs::remove_file(filename)?;
     Ok(())
 }
